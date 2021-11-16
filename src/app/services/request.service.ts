@@ -13,5 +13,9 @@ export class RequestService {
     return this.http.post<any>('http://127.0.0.1:8001/getcode',{"name":value}).toPromise();
 
   }
+  addstock(input:any){
+    return this.http.post<any>('http://127.0.0.1:8001/data',input);
+
+  }
   
 }

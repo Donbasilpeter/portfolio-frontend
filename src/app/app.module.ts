@@ -10,6 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
+import { DateRangeComponent } from './components/date-range/date-range.component';
+import { BacktestComponent } from './pages/backtest/backtest.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -18,6 +22,9 @@ import { MaterialModule } from './shared/material.module';
     SearchStocksComponent,
     PortfolioComponent,
     GraphComponent,
+    DateRangeComponent,
+    BacktestComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +33,9 @@ import { MaterialModule } from './shared/material.module';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
