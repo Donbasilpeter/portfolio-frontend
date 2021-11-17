@@ -36,6 +36,7 @@ export class SearchStocksComponent implements OnInit {
    
   getdata(Index:number){
     this.stockdata.addstock(this.code[Index]["code"])
+    this.stockdata.quantity.push(0)
   }
 
 

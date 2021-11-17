@@ -9,7 +9,7 @@ export class DataCentreService {
   dateStart:any = "20200101"
   dateEnd :any = "20210101"
   portfoliostocks:any = []
-
+  quantity:number[] = []
   constructor(private request:RequestService) { }
 
 
@@ -30,12 +30,13 @@ export class DataCentreService {
         for(let index =0 ; index < temp.length;index++ ){
           this.addstock(temp[index]["script_code"])
         }
+
      
      }
 
     }
- 
-   console.log(this.portfoliostocks)
+    console.log(this.quantity)
+    
   }
 
     addstock(code:string){
@@ -50,11 +51,17 @@ export class DataCentreService {
         if(   Number(this.dateStart) <Number(this.dateEnd)){
 
           this.request.addstock({"script_code":code,"from_date":this.dateStart,"to_date":this.dateEnd}).subscribe((data)=>{
-          this.portfoliostocks.push(data)
-  
+          
+            this.portfoliostocks.push(data)
+            console.log(data)
+            console.log(this.quantity)
+
+
+         
           })
          }
       }
+
      }
      
   
