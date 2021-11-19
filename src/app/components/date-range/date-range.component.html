@@ -11,8 +11,8 @@
     <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
 </mat-form-field> -->
 
-<mat-form-field appearance="fill">
-    <mat-label>Enter a date range</mat-label>
+<mat-form-field appearance="outline">
+    <mat-label>Enter a Date Range</mat-label>
     <mat-date-range-input [rangePicker]="picker" >
       <input #from matStartDate placeholder="Start date"  (change) ="fromChanges(from.value)">  
       <input #to matEndDate placeholder="End date" (dateChange) ="toChanges(from.value,to.value)">  

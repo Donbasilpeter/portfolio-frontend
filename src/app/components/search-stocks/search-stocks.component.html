@@ -1,6 +1,9 @@
 <form>
-    <mat-form-field>
-        <input #input type="text" matInput [matAutocomplete]="auto" (keyup)="getstocks(input.value)">
+    <mat-form-field appearance="outline">
+        <mat-label>Search Stocks</mat-label>
+        <input #input type="text" matInput [matAutocomplete]="auto" (keyup)="getstocks(input.value)" placeholder="Reliance ...">
+<mat-icon matSuffix color = "primary">search</mat-icon>
+
         <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of options;let Index = index" [value]="option" (click) = getdata(Index)>
                 {{option}}

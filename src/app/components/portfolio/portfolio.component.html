@@ -1,4 +1,4 @@
-<div class="listitem">
+<!-- <div class="listitem">
     <div class="list">
         <mat-selection-list [multiple]="false">
 
@@ -39,4 +39,37 @@
 
 </div>
 
+</div> -->
+
+<div class="listitem">
+    <div class="list" *ngFor="let stocks of stockdata.portfoliostocks;let Index" >
+        <div class="divider">
+            <div class="details">
+                {{stocks["name"]}} {{stocks["response"] == "FALSE" ? "0":stocks["pricedata"].length}} {{stockdata.quantity[Index]}} {{stocks["response"] == "FALSE" ? "(no data available)":""}}
+                </div>
+                <div class="input">
+                    <mat-form-field appearance="outline" floatLabel="always"  >
+                        <mat-label>Percentage</mat-label>
+                        <input matInput type="number" max = "100" min = "0" class="example-right-align" placeholder="0" #inputnum  [value]="stockdata.quantity[Index]"  (change) = "quantityUpdate(Index,inputnum.value)" >
+            
+                        <span matSuffix>%</span>
+                      </mat-form-field>
+                </div>
+                <div class="button">
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon"(click) ="remove(Index)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </div>
+        </div>
+        <mat-divider></mat-divider>
+           
+      
+        
+        
+     
+
+          
+
+
+    </div>
 </div>
