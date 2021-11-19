@@ -14,6 +14,8 @@ import { DateRangeComponent } from './components/date-range/date-range.component
 import { BacktestComponent } from './pages/backtest/backtest.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DatePipe } from '@angular/common';
+import { SubmitBarComponent } from './components/submit-bar/submit-bar.component';
+import { PortfolioDetailsComponent } from './components/portfolio-details/portfolio-details.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { DatePipe } from '@angular/common';
     DateRangeComponent,
     BacktestComponent,
     HomeComponent,
+    SubmitBarComponent,
+    PortfolioDetailsComponent,
   ],
   imports: [
     BrowserModule,

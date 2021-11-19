@@ -11,26 +11,38 @@ import { DatePipe } from '@angular/common';
 })
 export class DateRangeComponent implements OnInit {
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
-  });
-
+  
 
   constructor(private dateupdate:DataCentreService,private datepipe:DatePipe) { }
 
   ngOnInit(): void {
-    this.onChanges();
+    // this.onChanges();
   }
 
-  onChanges(): void {
-    this.range.valueChanges.subscribe(val => {
-    let start =this.datepipe.transform(val['start'], "yyyyMMdd") || ''
-    let end =this.datepipe.transform(val['end'], "yyyyMMdd") || ''
-    this.dateupdate.dateupdate(start,end)
-    });
-  }
+  // onChanges(): void {
+  //   this.range.valueChanges.subscribe(val => {
+  //   let start =this.datepipe.transform(val['start'], "yyyyMMdd") || ''
+  //   let end =this.datepipe.transform(val['end'], "yyyyMMdd") || ''
+  //   this.dateupdate.dateupdate(start,end)
+  //   });
+  // }
 
+  fromChanges(val:any){
+    let start =this.datepipe.transform(val, "yyyyMMdd") || ''
+    this.dateupdate.dateStart = start
+    this.dateupdate.dateupdate();
+    
+
+  }
+  toChanges(from:any,to:any){
+    let start =this.datepipe.transform(from, "yyyyMMdd") || ''
+    this.dateupdate.dateStart = start
+    let end =this.datepipe.transform(to, "yyyyMMdd") || ''
+    this.dateupdate.dateEnd= end
+    this.dateupdate.dateupdate();
+    
+
+  }
 
   
 }

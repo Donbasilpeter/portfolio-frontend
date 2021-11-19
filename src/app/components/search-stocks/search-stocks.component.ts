@@ -19,7 +19,6 @@ export class SearchStocksComponent implements OnInit {
 
   async getstocks(value:string){
     if(value){
-      let data1:any = "jhjh"
     const result = await this.stockdata.getstocks(value)
     this.options = []
     this.code = []
@@ -36,7 +35,6 @@ export class SearchStocksComponent implements OnInit {
    
   getdata(Index:number){
     this.stockdata.addstock(this.code[Index]["code"])
-    this.stockdata.quantity.push(0)
   }
 
 

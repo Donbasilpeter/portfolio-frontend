@@ -1,16 +1,43 @@
 import { Injectable } from '@angular/core';
 import { RequestService } from './request.service';
 
+interface portfolioDetails {
+  finalindex: number;
+  mean:number;
+  deviation:number;
+  cagr:number
+  yeardifference:number,
+  monthdifferene:number,
+  daydifference:number
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataCentreService {
   
-  dateStart:any = "20200101"
-  dateEnd :any = "20210101"
-  portfoliostocks:any = []
-  quantity:number[] = []
-  constructor(private request:RequestService) { }
+  
+  dateStart:string = "20200101";
+  dateEnd :string = "20210101";
+  portfoliostocks:any = [];
+  quantity:number[] = [];
+  result:any[] = [];
+  portfoliodetails:portfolioDetails = {
+    finalindex : 0,
+    mean : 0,
+    deviation : 0,
+    cagr : 0,
+    yeardifference:0,
+    monthdifferene:0,
+    daydifference:0
+  }
+ 
+
+  
+  constructor(private request:RequestService) { 
+   
+
+  }
 
 
   
@@ -19,24 +46,22 @@ export class DataCentreService {
     return  this.request.getstocks(value);
    }
 
-   dateupdate(dateStart:any,dateEnd:any){
-
-    this.dateStart = dateStart
-    this.dateEnd = dateEnd
-    if(dateStart != "" && dateEnd !=""){
-      if(this.portfoliostocks && Number(dateStart) <Number(dateEnd)){
-        let temp = this.portfoliostocks
-        this.portfoliostocks = []
-        for(let index =0 ; index < temp.length;index++ ){
-          this.addstock(temp[index]["script_code"])
-        }
+   dateupdate(){
+    if(this.dateStart != "" && this.dateEnd !=""){
+      if(this.portfoliostocks && Number(this.dateStart) <Number(this.dateEnd)){
+        let temp:any = []
+        this.portfoliostocks.forEach((element:any) => {
+          this.request.addstock({"script_code":element["script_code"],"from_date":this.dateStart,"to_date":this.dateEnd}).subscribe((data)=>{
+            temp.push(data)
+          })
+        });
+        this.portfoliostocks = temp
+        console.log(this.portfoliostocks,this.quantity)
 
      
      }
 
     }
-    console.log(this.quantity)
-    
   }
 
     addstock(code:string){
@@ -53,14 +78,23 @@ export class DataCentreService {
           this.request.addstock({"script_code":code,"from_date":this.dateStart,"to_date":this.dateEnd}).subscribe((data)=>{
           
             this.portfoliostocks.push(data)
-            console.log(data)
-            console.log(this.quantity)
+            if(this.quantity.length==0){
+              this.quantity.push(100)
+            }
+            else{
+            this.quantity.push(0)
+
+            }
+
+          
 
 
          
           })
          }
       }
+      console.log(this.portfoliostocks,this.quantity)
+
 
      }
      
