@@ -19,20 +19,7 @@ interface portfolioDetails {
 })
 export class DataCentreService {
 
-  chartOption: EChartsOption = {
-    title: {
-      text: 'Portfolio Growth'
-    },
-
-    xAxis: {
-      type: 'category',
-      data: []
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: []
-  };
+  chartOption: EChartsOption = {}
   
   dateStart:string = "20200101";
   dateEnd :string = "20210101";

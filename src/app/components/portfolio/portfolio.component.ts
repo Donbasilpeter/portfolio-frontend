@@ -41,7 +41,9 @@ remove(i:number){
   this.stockdata.portfoliostocks.splice(i, 1);
   this.stockdata.quantity.splice(i, 1);
   console.log(this.stockdata.portfoliostocks,this.stockdata.quantity)
-  
+  if(this.stockdata.portfoliostocks.length == 0 ){
+    this.stockdata.chartOption = {}
+  }
 }
 
 

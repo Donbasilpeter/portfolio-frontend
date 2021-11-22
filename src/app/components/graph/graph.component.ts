@@ -13,6 +13,15 @@ export class GraphComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  checkempty(){
+    if(Object.keys(this.plot.portfoliostocks).length ===0 || Object.keys(this.plot.chartOption).length ===0){
+      return true
+    }
+    else{
+      return false
+    }
+   
+  }
 
 
 

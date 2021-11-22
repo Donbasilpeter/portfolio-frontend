@@ -1,3 +1,5 @@
 <div class="graphcontent">
-    <div echarts [options]="plot.chartOption" class="graphcontent"></div>
+    <div class="empty" *ngIf="checkempty();else chart"> select your stocks</div>
+    <ng-template #chart> <div  echarts [options]="plot.chartOption" class="graphcontent" ></div></ng-template>
+
 </div>
