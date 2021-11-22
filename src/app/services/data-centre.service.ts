@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RequestService } from './request.service';
+import { EChartsOption } from 'echarts';
+
 
 interface portfolioDetails {
   finalindex: number;
@@ -11,11 +13,26 @@ interface portfolioDetails {
   daydifference:number
 }
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataCentreService {
-  
+
+  chartOption: EChartsOption = {
+    title: {
+      text: 'Portfolio Growth'
+    },
+
+    xAxis: {
+      type: 'category',
+      data: []
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: []
+  };
   
   dateStart:string = "20200101";
   dateEnd :string = "20210101";

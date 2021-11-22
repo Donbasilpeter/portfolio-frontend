@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EChartsOption } from 'echarts';
+import { DataCentreService } from 'src/app/services/data-centre.service';
 
 @Component({
   selector: 'app-graph',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraphComponent implements OnInit {
 
-  constructor() { }
+  constructor(public plot:DataCentreService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

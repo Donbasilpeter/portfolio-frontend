@@ -17,6 +17,7 @@ import { DatePipe } from '@angular/common';
 import { SubmitBarComponent } from './components/submit-bar/submit-bar.component';
 import { PortfolioDetailsComponent } from './components/portfolio-details/portfolio-details.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 @NgModule({
@@ -40,6 +41,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxEchartsModule.forRoot({
+     
+      echarts: () => import('echarts'), 
+    }),
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

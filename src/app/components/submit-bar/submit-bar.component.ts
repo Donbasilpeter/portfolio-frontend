@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataCentreService } from 'src/app/services/data-centre.service';
+import { EChartsOption } from 'echarts';
 
 @Component({
   selector: 'app-submit-bar',
@@ -69,7 +70,7 @@ export class SubmitBarComponent implements OnInit {
 
     }
 
-
+    this.modifyChartoptions();
   }
 
   setdailychange() {
@@ -81,10 +82,10 @@ export class SubmitBarComponent implements OnInit {
     for (let Index = 0; Index < this.dailychange.length; Index++) {
       sum = sum + this.dailychange[Index]
     }
-    this.portfolio.portfoliodetails.mean = sum / this.dailychange.length;
+    this.portfolio.portfoliodetails.mean = sum / this.dailychange.length; //mean
     sum = 0;
     for (let Index = 0; Index < this.dailychange.length; Index++) {
-      sum = sum + Math.pow((this.dailychange[Index] - this.portfolio.portfoliodetails.mean), 2) //mean
+      sum = sum + Math.pow((this.dailychange[Index] - this.portfolio.portfoliodetails.mean), 2) 
     }
     sum = sum / this.dailychange.length;
     this.portfolio.portfoliodetails.deviation = Math.sqrt(sum); //deviation
@@ -132,5 +133,64 @@ export class SubmitBarComponent implements OnInit {
     this.portfolio.result = copy;
 
   }
+  modifyChartoptions(){
+    let tempLegend:any[] = []
+    tempLegend =  Object.keys(this.portfolio.result[0])
+    tempLegend.splice(0,1)
+  
+   
+    let tempxAaxis:any = []
+    this.portfolio.result.forEach((element:any) => {
+      tempxAaxis.push(element.date)
+    })
+    let series:any[] =[];
+    let seriesData:any[] = []
+    tempLegend.forEach((element:any) => {
+      this.portfolio.result.forEach((data:any) =>{
+        seriesData.push(data[element])
+      })
+      series.push({  name: element,
+      type: 'line',
+      data: seriesData});
+      seriesData = []
+
+    });
+    console.log(series)
+
+    this.portfolio.chartOption = {
+      title: {
+        text: 'Portfolio Growth'
+      },
+      
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: tempLegend
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: tempxAaxis
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: series
+    };
+  }
+
+
 
 }
