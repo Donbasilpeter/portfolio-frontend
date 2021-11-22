@@ -1,7 +1,24 @@
 .submitbar{
-    width: 30%;
-    .button{
-        margin-right: 5%;
-        margin-left: auto;
+    width: 100%;
+    .toggle{
+        margin-left: 1em;
+        margin-right:auto ;
     }
+  .button{
+      margin-left: auto;
+    margin-right:2em ;
+  }
 }
+
+// .button{
+//     border-radius: 2px;
+//     margin-right: 5%;
+//     margin-left: auto;
+//     padding: 0.6rem 1.5rem;
+//     border: none;
+//     color: white;
+//     font-size: 16px;
+//     font-weight: 500;
+//     background-color: rgba(48, 63, 159, .6)
+//     ;
+// }

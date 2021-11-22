@@ -1,8 +1,32 @@
-<app-search-stocks></app-search-stocks>
-<app-date-range></app-date-range>
-<app-submit-bar></app-submit-bar>
 
-<app-portfolio></app-portfolio>
-<app-portfolio-details></app-portfolio-details>
+    <app-navbar></app-navbar>
 
-<app-graph></app-graph>
+<div class="full">
+
+    <div class="left">
+        <div class="portfolio">
+            <app-submit-bar></app-submit-bar>
+        
+            <app-portfolio></app-portfolio>
+        
+        </div>
+        <div class="values">
+        <app-portfolio-details ></app-portfolio-details>
+            
+        </div>
+        
+    </div>
+    <div class="right">
+        <div class="searchbar">
+            <app-search-stocks class = "search"></app-search-stocks>
+        <app-date-range class = "date"></app-date-range>
+        </div>
+        <div class="graph">
+        <app-graph ></app-graph>
+
+        </div>
+        
+        
+    </div>
+</div>
+

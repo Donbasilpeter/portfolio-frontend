@@ -16,6 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DatePipe } from '@angular/common';
 import { SubmitBarComponent } from './components/submit-bar/submit-bar.component';
 import { PortfolioDetailsComponent } from './components/portfolio-details/portfolio-details.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { PortfolioDetailsComponent } from './components/portfolio-details/portfo
     HomeComponent,
     SubmitBarComponent,
     PortfolioDetailsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

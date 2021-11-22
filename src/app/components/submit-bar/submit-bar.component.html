@@ -1,7 +1,12 @@
 <p class  ="submitbar">
     <mat-toolbar color="primary">
         
-     <mat-slide-toggle [(ngModel)]="compare">Compare  </mat-slide-toggle>
+     <mat-slide-toggle class="toggle" [(ngModel)]="compare">Compare  </mat-slide-toggle>
+     <!-- <div matRipple [matRippleColor]="'blue'"  class="">
+      <button  class="primary-button button">Submit</button>
+     </div> -->
+     
+
      <button class = "button" mat-raised-button color="accent" (click) ="createPortfolio()">Submit</button>
     </mat-toolbar>
   </p>

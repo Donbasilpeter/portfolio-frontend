@@ -9,6 +9,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatRippleModule} from '@angular/material/core';
 const materialModules = [
   MatAutocompleteModule,
   MatFormFieldModule,
@@ -19,7 +21,9 @@ const materialModules = [
   MatListModule,
   MatIconModule,
   MatToolbarModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatSidenavModule,
+  MatRippleModule
 ];
 
 @NgModule({

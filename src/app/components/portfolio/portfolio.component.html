@@ -42,7 +42,8 @@
 </div> -->
 
 <div class="listitem">
-    <div class="list" *ngFor="let stocks of stockdata.portfoliostocks;let Index" >
+    
+    <div class="list" *ngFor="let stocks of stockdata.portfoliostocks;let Index = index" >
         <div class="divider">
             <div class="details">
                 {{stocks["name"]}} {{stocks["response"] == "FALSE" ? "0":stocks["pricedata"].length}} {{stockdata.quantity[Index]}} {{stocks["response"] == "FALSE" ? "(no data available)":""}}

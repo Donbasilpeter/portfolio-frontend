@@ -1,0 +1,106 @@
+
+// .full{
+//     height: 93.2%;
+//     overflow: auto;
+//     display: grid;
+//     grid-template-columns: 1fr 3fr;
+//     .left{
+//             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+//         height: 90%;
+//         margin: 1vh;
+//         display: grid;
+//         grid-template-rows: 1fr 1fr;
+//         .portfolio{
+//             height: 100%;
+//             width: 100%;
+//         }
+//         .values{
+//             background-color: rgb(189, 189, 189);
+
+//         }
+//     }
+//     .right{
+//         height: 90%;
+//         display: grid;
+//         grid-template-rows: 1fr 6fr;
+
+//         .searchbar{
+//             margin-left: auto;
+//             margin-right: 0px;
+//             margin-top: 30px;
+//             width: 50%;
+//             display: grid;
+//             grid-template-columns: 1fr 1fr;
+//             .date{
+//                 margin-left: auto;
+//                 margin-right: 4rem;
+//                 padding-top: 16px;
+//             }
+//             .search{
+//                 margin-left: auto;
+//                 margin-right: 2rem;
+//                 padding-top: 16px;
+
+//             }
+//             }   
+//             .graph{
+//                 background-color: rgb(189, 189, 189);
+//             }
+
+//     }
+// }
+
+
+.full{
+    height: 91%;
+    .left{
+        height:100%;
+        width:25%;
+        float:left;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin: .5%;
+
+        .portfolio{
+
+            height: 50%;
+            width: 100%;
+           
+            
+        }
+        .values{
+            margin-top: 1%;
+            height: 50%;
+            width: 100%;
+
+        }
+    }
+    .right{
+        width: 74%;
+        float: right;
+        .searchbar{
+                        margin-left: auto;
+                        margin-right: 0px;
+                        margin-top: 30px;
+                        width: 50%;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        .date{
+                            margin-left: 0rem;
+                            margin-right: auto;
+                            padding-top: 16px;
+                        }
+                        .search{
+                            margin-left: auto;
+                            margin-right: 3rem;
+                            padding-top: 16px;
+            
+                        }
+                        }   
+        .graph{
+            height:70vh;
+            background-color: rgb(160, 160, 160);
+        }
+
+    }
+}
