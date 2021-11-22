@@ -187,6 +187,19 @@ export class SubmitBarComponent implements OnInit {
       yAxis: {
         type: 'value'
       },
+      dataZoom: [
+    
+        {
+            type: 'inside',
+            xAxisIndex: 0,
+            filterMode: 'filter'
+        },
+        {
+            type: 'inside',
+            yAxisIndex: 0,
+            filterMode: 'empty'
+        }
+    ],
       series: series
     };
   }
