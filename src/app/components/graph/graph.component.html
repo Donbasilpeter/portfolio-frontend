@@ -1,5 +1,16 @@
 <div class="graphcontent">
-    <div class="empty" *ngIf="checkempty();else chart"> select your stocks</div>
+    <div class="empty" *ngIf="checkempty();else chart"> 
+        <div class="img">
+        <img class = "imgi"  src="assets/graph_initial.svg">
+
+
+        </div>
+      
+
+
+    
+    </div>
+
     <ng-template #chart> <div  echarts [options]="plot.chartOption" class="graphcontent" ></div></ng-template>
 
 </div>
